@@ -1,6 +1,8 @@
 SeoBundle
 ====================
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/it-blaster/seo-bundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/seo-bundle/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/it-blaster/seo-bundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/it-blaster/seo-bundle/build-status/master)
+
 Symfony2 seo bundle
 
 Installation
