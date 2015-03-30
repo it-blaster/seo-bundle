@@ -1,6 +1,6 @@
 <?php
 
-namespace Artsofte\SeoBundle\Admin;
+namespace ItBlaster\SeoBundle\Admin;
 
 use ItBlaster\SeoBundle\Model\SeoFile;
 use Propel\PropelBundle\Validator\Constraints\UniqueObject;

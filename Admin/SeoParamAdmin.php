@@ -6,6 +6,8 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Bridge\Propel1\Form\Type\TranslationCollectionType;
+use Symfony\Bridge\Propel1\Form\Type\TranslationType;
 
 class SeoParamAdmin extends Admin
 {
@@ -20,17 +22,32 @@ class SeoParamAdmin extends Admin
             ->add('url', null, array(
                 'label' => 'seo_param_url'
             ))
-            ->add('title', 'text', array(
-                'label'    => 'seo_param_title',
-                'required' => false
-            ))
-            ->add('keywords', 'textarea', array(
-                'label'    => 'seo_param_keywords',
-                'required' => false
-            ))
-            ->add('description', 'textarea', array(
-                'label'    => 'seo_param_description',
-                'required' => false
+            ->add('SeoParamI18ns', new TranslationCollectionType(), array(
+                'label'     => false,
+                'required'  => false,
+                'type'      => new TranslationType(),
+                'languages' => $this->getConfigurationPool()->getContainer()->getParameter('locales'),
+                'options' => array(
+                    'label' => false,
+                    'data_class' => 'ItBlaster\SeoBundle\Model\SeoParamI18n',
+                    'columns' => array(
+                        'Title' => array(
+                            'label' => 'seo_param_title',
+                            'type' => 'text',
+                            'required' => false
+                        ),
+                        'Keywords' => array(
+                            'label' => 'seo_param_keywords',
+                            'type' => 'text',
+                            'required' => false
+                        ),
+                        'Description' => array(
+                            'label' => 'seo_param_description',
+                            'type' => 'text',
+                            'required' => false
+                        ),
+                    )
+                )
             ))
         ;
     }

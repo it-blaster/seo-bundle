@@ -21,7 +21,6 @@
         </ul>
 
         {% for i, child in form %}
-
             <div class="tab-pane {{ i == 0 ? 'active' : 'hidden' }}" id="SeoParamI18ns_{{ child.vars.value.locale }}">
                 {{ form_row(child) }}
             </div>
