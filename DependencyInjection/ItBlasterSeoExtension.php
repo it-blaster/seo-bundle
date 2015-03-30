@@ -24,5 +24,17 @@ class ItBlasterSeoExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        if (isset($bundles['SonataAdminBundle'])) {
+            $loader->load('services_sonata_admin.yml');
+        }
+
+        $container->setParameter('it_blaster_seo.edit_mode.roles', $config['edit_mode']['roles']);
+
+        if (isset($config['admin']['seo_param']['class'])) {
+            $container->setParameter('it_blaster_seo.admin.seo_param.class', $config['admin']['seo_param']['class']);
+        }
+
     }
+
 }

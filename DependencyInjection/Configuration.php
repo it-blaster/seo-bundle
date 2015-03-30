@@ -20,6 +20,31 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('it_blaster_seo');
 
+        $rootNode->children()
+            ->arrayNode('admin')
+                ->children()
+                    ->arrayNode('seo_param')
+                        ->children()
+                            ->scalarNode('class')
+                                ->cannotBeEmpty()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+
+            ->arrayNode('edit_mode')
+                ->addDefaultsIfNotSet()
+                    ->children()
+                        ->arrayNode('roles')
+                            ->prototype('scalar')->end()
+                            ->cannotBeEmpty()
+                            ->defaultValue(array('ROLE_SUPER_ADMIN'))
+                        ->end()
+                    ->end()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 }

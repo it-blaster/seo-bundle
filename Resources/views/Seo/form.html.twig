@@ -1,0 +1,22 @@
+{% form_theme form 'ItBlasterSeoBundle:Form:fields.html.twig' %}
+
+{% javascripts
+    '@ItBlasterSeoBundle/Resources/public/js/seo_admin.js' %}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+{% for flashMessage in app.session.flashbag.get(form_name) %}
+    <div class="flash notice"> {{ flashMessage }} </div>
+{% endfor %}
+
+<ul class="nav nav-tabs seo-language-tabs" role="tablist">
+    {% for i, lang in form.vars.locales %}
+        <li {% if i == 0 %}class="active"{% endif %} role="presentation">
+            <a class="seo-tab-button" href="#SeoParamI18ns_{{ i }}">
+                {{ lang }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+{{ form(form) }}

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="">
+    <body>
+
+      <trans-unit id="seo_param_label">
+        <source>seo_param_label</source>
+        <target>SEO-параметры</target>
+      </trans-unit>
+
+      <trans-unit id="seo_files_label">
+        <source>seo_files_label</source>
+        <target>SEO-Файлы</target>
+      </trans-unit>
+
+      <trans-unit id="seo_counters_label">
+        <source>seo_counters_label</source>
+        <target>SEO-счетчики</target>
+      </trans-unit>
+
+      <trans-unit id="seo_param_url">
+        <source>seo_param_url</source>
+        <target>URL</target>
+      </trans-unit>
+
+      <trans-unit id="seo_param_title">
+        <source>seo_param_title</source>
+        <target>Заголовок</target>
+      </trans-unit>
+
+      <trans-unit id="seo_param_keywords">
+        <source>seo_param_keywords</source>
+        <target>Ключевые слова</target>
+      </trans-unit>
+
+      <trans-unit id="seo_param_description">
+        <source>seo_param_description</source>
+        <target>Описание</target>
+      </trans-unit>
+
+      <trans-unit id="seo_form_type_submit">
+        <source>seo_form_type_submit</source>
+        <target>Сохранить</target>
+      </trans-unit>
+
+      <trans-unit id="seo_form_listener_changes_saved">
+        <source>seo_form_listener_changes_saved</source>
+        <target>Изменения сохранены!</target>
+      </trans-unit>
+
+      <trans-unit id="Seo Param List">
+        <source>Seo Param List</source>
+        <target>SEO-параметры</target>
+      </trans-unit>
+
+      <trans-unit id="Seo Param Delete">
+        <source>Seo Param Delete</source>
+        <target>Удаление</target>
+      </trans-unit>
+
+      <trans-unit id="Seo File List">
+        <source>Seo File List</source>
+        <target>SEO-файлы</target>
+      </trans-unit>
+
+      <trans-unit id="Seo File Delete">
+        <source>Seo File Delete</source>
+        <target>Удаление</target>
+      </trans-unit>
+
+      <trans-unit id="Seo Counter List">
+        <source>Seo Counter List</source>
+        <target>SEO-счетчики</target>
+      </trans-unit>
+
+      <trans-unit id="Seo Counter Delete">
+        <source>Seo Counter Delete</source>
+        <target>Удаление</target>
+      </trans-unit>
+
+    </body>
+  </file>
+</xliff>

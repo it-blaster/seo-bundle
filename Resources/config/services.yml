@@ -1,1 +1,37 @@
+parameters:
+    it_blaster_seo.form_type.class: ItBlaster\SeoBundle\Form\Type\SeoFormType
+    it_blaster_seo.service.class: ItBlaster\SeoBundle\Service\SeoService
+    it_blaster_seo.twig_extension.class: ItBlaster\SeoBundle\Twig\Extension\SeoExtension
+    it_blaster_seo.form_listener.class: ItBlaster\SeoBundle\EventListener\SeoFormListener
+
 services:
+    it_blaster_seo.service:
+        class: %it_blaster_seo.service.class%
+        arguments: [@request_stack]
+
+    it_blaster_seo.twig_extension:
+        class: %it_blaster_seo.twig_extension.class%
+        arguments: [@it_blaster_seo.service, @it_blaster_seo.form, @request_stack, @security.context, %it_blaster_seo.edit_mode.roles%]
+        tags:
+            - { name: twig.extension }
+
+    it_blaster_seo.form_listener:
+        class: %it_blaster_seo.form_listener.class%
+        arguments: [@it_blaster_seo.form, @session, @templating, @security.context, @translator.default, %it_blaster_seo.edit_mode.roles%]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    it_blaster_seo.form_type:
+        class: %it_blaster_seo.form_type.class%
+        arguments: [@request_stack, %locales%]
+        tags:
+        - { name: form.type }
+
+    it_blaster_seo.form:
+        factory_method: createNamed
+        factory_service: form.factory
+        class: Symfony\Component\Form\Form
+        arguments:
+            - it_blaster_seo_form       # name of the form
+            - @it_blaster_seo.form_type # alias of the form type
+            - null                      # data to bind, this is where your entity could go if you have that defined as a service

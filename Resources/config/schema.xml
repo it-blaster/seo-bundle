@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="default" namespace="ItBlaster\SeoBundle\Model" defaultIdMethod="native">
+
+    <table name="seo_param">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="url" type="varchar" size="1023" required="true" defaultValue="" />
+        <column name="title" type="longvarchar" />
+        <column name="keywords" type="longvarchar" />
+        <column name="description" type="longvarchar" />
+
+        <validator column="url">
+            <rule name="required" message="Url is required." />
+            <rule name="maxValue" value="1023" message="Max length is 1023" />
+        </validator>
+
+        <index>
+            <index-column name="url" />
+        </index>
+
+        <behavior name="i18n">
+            <parameter name="i18n_columns" value="title, keywords, description" />
+            <parameter name="default_locale" value="ru" />
+        </behavior>
+
+        <vendor type="mysql">
+            <parameter name="Engine" value="InnoDB" />
+            <parameter name="Charset" value="utf8" />
+        </vendor>
+    </table>
+
+    <table name="seo_file">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="name" type="varchar" size="255" required="true" />
+        <column name="title" type="varchar" size="255" required="false" />
+        <column name="content" type="longvarchar" required="false" />
+
+        <behavior name="timestampable"/>
+    </table>
+
+    <table name="seo_counter">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true" />
+        <column name="title" type="varchar" size="255" required="true" />
+        <column name="content" type="longvarchar" required="true" />
+
+        <behavior name="timestampable"/>
+    </table>
+
+</database>

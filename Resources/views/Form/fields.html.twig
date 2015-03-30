@@ -1,0 +1,18 @@
+{% block collection_widget %}
+    {% spaceless %}
+        <div {{ block('widget_container_attributes') }} class="seo-tab-content">
+            {{ block('collection_rows') }}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+{% block collection_rows %}
+    {% spaceless %}
+        {{ form_errors(form) }}
+        {% for i, child in form %}
+            <div class="tab-pane {{ i == 0 ? 'active' : 'hidden' }}" id="SeoParamI18ns_{{ i }}">
+                {{ form_row(child) }}
+            </div>
+        {% endfor %}
+    {% endspaceless %}
+{% endblock collection_rows %}
