@@ -9,14 +9,4 @@
     <div class="flash notice"> {{ flashMessage }} </div>
 {% endfor %}
 
-<ul class="nav nav-tabs seo-language-tabs" role="tablist">
-    {% for i, lang in form.vars.locales %}
-        <li {% if i == 0 %}class="active"{% endif %} role="presentation">
-            <a class="seo-tab-button" href="#SeoParamI18ns_{{ i }}">
-                {{ lang }}
-            </a>
-        </li>
-    {% endfor %}
-</ul>
-
 {{ form(form) }}

@@ -9,8 +9,20 @@
 {% block collection_rows %}
     {% spaceless %}
         {{ form_errors(form) }}
+
+        <ul class="nav nav-tabs seo-language-tabs" role="tablist">
+            {% for i, child in form %}
+                <li {% if i == 0 %}class="active"{% endif %} role="presentation">
+                    <a class="seo-tab-button" href="#SeoParamI18ns_{{ child.vars.value.locale }}">
+                        {{ child.vars.value.locale }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
         {% for i, child in form %}
-            <div class="tab-pane {{ i == 0 ? 'active' : 'hidden' }}" id="SeoParamI18ns_{{ i }}">
+
+            <div class="tab-pane {{ i == 0 ? 'active' : 'hidden' }}" id="SeoParamI18ns_{{ child.vars.value.locale }}">
                 {{ form_row(child) }}
             </div>
         {% endfor %}
