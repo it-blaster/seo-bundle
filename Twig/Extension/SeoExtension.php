@@ -106,6 +106,8 @@ class SeoExtension extends \Twig_Extension
             if ($seo_param) {
                 $method_name = 'get' . ucfirst($type);
 
+                $seo_param->getTranslation($request->getLocale());
+                
                 if (method_exists($seo_param, $method_name)) {
                     $value = $seo_param->$method_name();
                 } else {
@@ -115,6 +117,7 @@ class SeoExtension extends \Twig_Extension
 
             return $value !== null ? $value : $default_value;
         } else {
+
             if (!$this->security_context->isGranted($this->allowed_roles)) {
                 return '';
             }

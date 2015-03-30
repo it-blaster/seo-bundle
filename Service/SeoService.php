@@ -103,15 +103,16 @@ class SeoService
         $paths = $this->getAvailablePaths($info['path']);
 
         $main_url = $info['path'] . $info['query'];
-        $model = $this->getCachedModel($main_url, $this->request->getLocale());
+
+        $model = $this->getCachedModel($main_url);
 
         if ($model === null && !empty($info['query'])) {
-            $model = $this->getCachedModel($info['path'], $this->request->getLocale());
+            $model = $this->getCachedModel($info['path']);
         }
 
         if ($model === null) {
             foreach ($paths as $path) {
-                $model = $this->getCachedModel(rtrim($path, '/') . '/*', $this->request->getLocale());
+                $model = $this->getCachedModel(rtrim($path, '/') . '/*');
 
                 if ($model) {
                     break;
@@ -121,6 +122,7 @@ class SeoService
 
         return $model;
     }
+
 
     /**
      * Try to load a model from db or get it from cache.
@@ -134,19 +136,22 @@ class SeoService
      *
      * @return ItBlaster\SeoBundle\Model\SeoParam|null
      */
-    protected function getCachedModel($key, $locale)
+    protected function getCachedModel($key, $locale = null)
     {
-        $cache_key = $key . '_' . $locale;
+        $cache_key = $key;
+        if ($locale) {
+            $cache_key .= '_' . $locale;
+        }
 
         if (!array_key_exists($cache_key, self::$cache)) {
-            self::$cache[$cache_key] = SeoParamQuery::create()
+            $q = SeoParamQuery::create()
                 ->filterByUrl($key, \Criteria::LIKE)
-                ->joinWithI18n($locale)
-                ->orderByUrl()
-                ->findOne()
-            ;
+                ->orderByUrl();
+
+            self::$cache[$cache_key] = $q->findOne();
         }
 
         return self::$cache[$cache_key];
     }
+
 }

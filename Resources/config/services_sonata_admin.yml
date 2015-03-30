@@ -5,19 +5,19 @@ parameters:
 
 services:
     it_blaster_seo.admin.seo_param:
-        class: %artsofte_seo.admin.seo_param.class%
+        class: %it_blaster_seo.admin.seo_param.class%
         tags:
             - { name: sonata.admin, manager_type: propel, group: SEO, label: seo_param_label }
         arguments: [~, ItBlaster\SeoBundle\Model\SeoParam, ~]
 
     it_blaster_seo.admin.seo_file:
-        class: %artsofte_seo.admin.seo_file.class%
+        class: %it_blaster_seo.admin.seo_file.class%
         arguments: [~, ItBlaster\SeoBundle\Model\SeoFile, ItBlasterSeoBundle:SeoFileAdmin]
         tags:
             - {name: sonata.admin, manager_type: propel, group: SEO, label: seo_files_label}
 
     it_blaster_seo.admin.seo_counter:
-        class: %artsofte_seo.admin.seo_counter.class%
+        class: %it_blaster_seo.admin.seo_counter.class%
         arguments: [~, ItBlaster\SeoBundle\Model\SeoCounter, ~]
         tags:
             - { name: sonata.admin, manager_type: propel, group: SEO, label: seo_counters_label }
