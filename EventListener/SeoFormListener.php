@@ -68,12 +68,11 @@ class SeoFormListener
     protected $seo_param = null;
 
     /**
-     * Constructor
-     *
      * @param Form                     $seo_form
      * @param Session                  $session
      * @param EngineInterface          $templating
      * @param SecurityContextInterface $securityContext
+     * @param Translator               $translator
      * @param array                    $allowed_roles
      */
     public function __construct(Form $seo_form, Session $session, EngineInterface $templating, SecurityContextInterface $securityContext, Translator $translator, array $allowed_roles)
@@ -84,7 +83,6 @@ class SeoFormListener
         $this->security_context = $securityContext;
         $this->allowed_roles    = $allowed_roles;
         $this->translator       = $translator;
-
     }
 
     /**

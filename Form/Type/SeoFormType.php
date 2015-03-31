@@ -25,6 +25,8 @@ class SeoFormType extends AbstractType
      */
     protected $request;
 
+    protected $locales;
+
     /**
      * Constructor
      *
@@ -63,17 +65,17 @@ class SeoFormType extends AbstractType
                 'data_class' => 'ItBlaster\SeoBundle\Model\SeoParamI18n',
                 'columns' => array(
                     'Title' => array(
-                        'label' => 'seo_param_title',
+                        'label' => 'Заголовок',
                         'type' => 'text',
-                        'required' => false
+                        'required' => false,
                     ),
                     'Keywords' => array(
-                        'label' => 'seo_param_keywords',
+                        'label' => 'Ключевые слова',
                         'type' => 'text',
                         'required' => false
                     ),
                     'Description' => array(
-                        'label' => 'seo_param_description',
+                        'label' => 'Описание',
                         'type' => 'text',
                         'required' => false
                     ),
