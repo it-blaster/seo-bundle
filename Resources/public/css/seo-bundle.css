@@ -1,0 +1,66 @@
+#it_blaster_seo_form label { 
+    display: block;
+    margin: 0 0 4px;
+}
+
+#it_blaster_seo_form  input[type="text"], #it_blaster_seo_form  textarea {
+    margin: 0 0 10px;
+    width: 100%;
+    max-width: none;
+}
+
+#it_blaster_seo_form select {
+    margin: 0;
+    width: 100%;
+    max-width: 300px;
+}
+
+.seo-tab-content {
+    margin: 20px 0;
+}
+.seo-tab-content  .nav-tabs {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.seo-tab-content  .nav-tabs li {
+    display: inline-block;
+    display: inline!ie;
+    zoom: 1!ie;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.2;
+    list-style: none;
+}
+
+.seo-tab-content  .seo-tab-button {
+    display: block;
+    padding: 4px 16px 6px;
+    border-style: solid;
+    border-color: transparent;
+    border-width: 1px 1px 0;
+}
+.seo-tab-content .active  .seo-tab-button {
+    background: #ccc;
+    color: #000;
+    cursor: default;
+    text-decoration: none;
+}
+
+.seo-tab-content .tab-pane {
+    background: #ccc;
+    color: #000;
+    padding: 16px;
+}
+
+.seo-tab-content .tab-pane.hidden { 
+    display: none; 
+}
+
+.seo-tab-content .tab-pane.active { 
+    display: block; 
+}
+
