@@ -141,11 +141,12 @@ class SeoExtension extends \Twig_Extension
     /**
      * Returns all counters content
      *
+     * @param string $place
      * @return string
      */
-    public function seoCounters()
+    public function seoCounters($place = null)
     {
-        $counters = SeoCounterQuery::create()->find();
+        $counters = SeoCounterQuery::create()->findByPlace($place);
         $result = '';
         /** @var SeoCounter $counter */
         foreach ($counters as $counter) {

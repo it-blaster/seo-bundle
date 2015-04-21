@@ -22,6 +22,9 @@ class SeoCounterAdmin extends Admin
             ->add('Title', null, array(
                 'label' => 'Название'
             ))
+            ->add('Place', null, array(
+                'label' => 'Где выводить'
+            ))
             ->add('CreatedAt', null, array(
                 'label'  => 'Создано',
                 'format' => 'd.m.Y'
@@ -49,6 +52,11 @@ class SeoCounterAdmin extends Admin
         $formMapper
             ->add('Title', null, array(
                 'label' => 'Описание'
+            ))
+            ->add('Place', null, array(
+                'label' => 'Где выводить',
+                'help'  => 'Например: head, footer или оставить пустым',
+                'required' => false,
             ))
             ->add('Content', null, array(
                 'label' => 'Содержимое'
