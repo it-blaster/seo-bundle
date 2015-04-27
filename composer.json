@@ -14,7 +14,7 @@
     "require": {
         "symfony/symfony": ">=2.2",
         "propel/propel1": "~1.6",
-        "it-blaster/translation-bundle": "dev-master"
+        "it-blaster/translation-bundle": ">=1.0"
     },
     "autoload": {
         "psr-0": { "ItBlaster\\SeoBundle": "" }
